@@ -10,7 +10,7 @@ LLM SPARQL Query Testing
 1️⃣ Clone the repository:
 
    ```sh
-   git clone https://github.com/tdiprima/nl2sparql/.git
+   git clone https://github.com/tdiprima/nl2sparql.git
    cd nl2sparql
    ```
 
