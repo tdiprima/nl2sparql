@@ -32,9 +32,21 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install OpenAI package
-        run: pip install --upgrade openai
+        run: |
+          source venv/bin/activate
+          pip install --upgrade openai
+
+      - name: Debug Environment Variables
+        run: env
+
+      - name: Verify API Key Availability
+        run: echo "OPENAI_API_KEY is set"
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Run Tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           source venv/bin/activate
           python -m unittest discover tests
