@@ -13,20 +13,22 @@ QUERIES = {
         } LIMIT 10
     """,
     "Cancers and ICD-10 Codes": """
+        PREFIX dct: <http://purl.org/dc/terms/>
         SELECT ?cancer ?label ?icd10 WHERE {
-          ?cancer rdf:type dbo:Cancer .
+          ?cancer dct:subject dbc:Types_of_cancer .
           ?cancer rdfs:label ?label .
-          OPTIONAL { ?cancer dbo:icd10 ?icd10 } 
+          OPTIONAL { ?cancer dbo:icd10 ?icd10 }
           FILTER (LANG(?label) = 'en')
         } LIMIT 10
     """,
     "Diseases and Associated Genes": """
         SELECT ?disease ?gene WHERE {
           ?disease rdf:type dbo:Disease .
-          ?disease dbo:associatedGene ?gene .
+          ?disease dbp:gene ?gene .
         } LIMIT 10
     """,
     "Liver Diseases": """
+        PREFIX dct: <http://purl.org/dc/terms/>
         SELECT ?disease ?label WHERE {
           ?disease rdf:type dbo:Disease .
           ?disease dct:subject dbc:Hepatology .
@@ -37,13 +39,14 @@ QUERIES = {
     "Pathology Scientists": """
         SELECT ?scientist ?name ?field WHERE {
           ?scientist rdf:type dbo:Scientist .
-          ?scientist dbo:field dbr:Pathology .
+          ?scientist dbp:field dbr:Pathology .
           ?scientist foaf:name ?name .
           OPTIONAL { ?scientist dbo:academicDiscipline ?field }
           FILTER (LANG(?name) = 'en')
         } LIMIT 10
     """
 }
+
 
 def run_sparql_query(query):
     """Executes a SPARQL query against the DBPedia endpoint."""
@@ -58,6 +61,7 @@ def run_sparql_query(query):
         print(f"Error running query: {e}")
         return []
 
+
 def display_results(title, results):
     """Formats and prints SPARQL query results."""
     print(f"\n🔬 {title}:")
@@ -66,7 +70,8 @@ def display_results(title, results):
         return
 
     for i, row in enumerate(results, start=1):
-        print(f"{i}. {', '.join(f'{k}: {v['value']}' for k, v in row.items())}")
+        print(', '.join(f"{k}: {v['value']}" for k, v in row.items()))
+
 
 if __name__ == "__main__":
     print("🔍 Running pathology-related SPARQL queries on DBPedia...\n")
