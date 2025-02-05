@@ -1,10 +1,6 @@
-# nl-query-to-sparql
+# Natural language to SPARQL query
 
 ![CI Tests](https://github.com/tdiprima/nl2sparql/actions/workflows/ci.yml/badge.svg)
-
-LLM SPARQL Query Testing
-
----
 
 ### **📌 How to Use**
 1️⃣ Clone the repository:

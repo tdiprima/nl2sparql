@@ -1,3 +1,11 @@
+"""
+Query dbpedia with a pathology query.
+
+Author: tdiprima
+"""
+
+__author__ = 'tdiprima'
+
 import requests
 
 # DBPedia SPARQL Endpoint

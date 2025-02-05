@@ -1,6 +1,11 @@
 """
 Test LLM Query Generation
+
+Author: tdiprima
 """
+
+__author__ = 'tdiprima'
+
 from openai import OpenAI
 import os
 

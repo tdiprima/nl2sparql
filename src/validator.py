@@ -1,6 +1,10 @@
 """
 Validate Query Results
+
+Author: tdiprima
 """
+
+__author__ = 'tdiprima'
 
 
 def validate_results(results):

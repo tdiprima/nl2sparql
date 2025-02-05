@@ -1,3 +1,11 @@
+"""
+Run 5 pathology queries and print the results.
+
+Author: tdiprima
+"""
+
+__author__ = 'tdiprima'
+
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 # Define the SPARQL endpoint

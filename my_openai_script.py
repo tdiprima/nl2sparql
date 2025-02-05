@@ -1,3 +1,16 @@
+"""
+Test environment variable in GitHub actions.
+Triggered by debug.yml
+
+Author: tdiprima
+Version: 1.0
+License: MIT
+"""
+
+__author__ = 'tdiprima'
+__version__ = '1.0'
+__license__ = 'MIT'
+
 import os
 
 import openai

@@ -1,7 +1,12 @@
 """
 Validate the query generation and execution
 From root, execute: python -m unittest discover tests
+
+Author: tdiprima
 """
+
+__author__ = 'tdiprima'
+
 import unittest
 from src.query_generator import generate_sparql
 from src.executor import run_sparql_query

@@ -1,3 +1,12 @@
+"""
+Natural language to SPARQL, query dbpedia, and return the results.
+Modify "natural_query" in main()
+
+Author: tdiprima
+"""
+
+__author__ = 'tdiprima'
+
 from openai import OpenAI
 import requests
 import os

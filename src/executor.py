@@ -1,6 +1,11 @@
 """
 Execute SPARQL Queries
+
+Author: tdiprima
 """
+
+__author__ = 'tdiprima'
+
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 
