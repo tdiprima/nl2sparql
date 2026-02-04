@@ -34,7 +34,7 @@ def run_sparql_query(sparql_query):
     Sends a SPARQL query to the DBPedia endpoint and retrieves the results.
     """
     params = {"query": sparql_query, "format": "json"}
-    response = requests.get(DBPEDIA_SPARQL_URL, params=params)
+    response = requests.get(DBPEDIA_SPARQL_URL, params=params, timeout=10)
 
     if response.status_code == 200:
         return response.json()

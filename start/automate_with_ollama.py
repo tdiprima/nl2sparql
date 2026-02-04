@@ -57,7 +57,7 @@ def run_sparql_query(sparql_query):
         "Accept": "application/json"
     }
 
-    response = requests.get(DBPEDIA_SPARQL_URL, params=params, headers=headers)
+    response = requests.get(DBPEDIA_SPARQL_URL, params=params, headers=headers, timeout=10)
 
     if response.status_code == 200:
         return response.json()
