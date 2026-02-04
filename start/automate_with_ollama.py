@@ -31,9 +31,8 @@ def generate_sparql_query(natural_language_query):
     response = ollama.chat(model="mistral", messages=[{"role": "user", "content": prompt}])
     response_text = response['message']['content']
 
-    # Cleanup Ollama's output quirks
-    response_text = response_text.replace('\n', ' ').replace('\\', '')
-    response_text = response_text.strip('`')  # Remove potential markdown artifacts
+    # Cleanup Ollama's output quirks; remove potential markdown artifacts
+    response_text = response_text.replace('\n', ' ').replace('\\', '').strip('`')
 
     # Ensure necessary prefixes exist
     # if "PREFIX dbo:" not in response_text:
@@ -62,8 +61,7 @@ def run_sparql_query(sparql_query):
 
     if response.status_code == 200:
         return response.json()
-    else:
-        return {"error": f"SPARQL query failed with status {response.status_code}"}
+    return {"error": f"SPARQL query failed with status {response.status_code}"}
 
 
 def main():
